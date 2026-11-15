@@ -65,7 +65,7 @@ const cenas = R.cenas.map((c)=>{
   if(c.titulo) add(el('div','titulo'+(c.tipo==='gancho'?' grande':''), md(c.titulo)), 0.15);
   if(c.tipo==='gancho'){
     const tr = add(el('div','traco'), 0.5); upd.push(t=>{ tr.style.width = (560*eo((t-0.5)/0.7))+'px'; });
-    upd.push(pendulo(arte, 760, 1020, 300));
+    if(c.pendulo !== false) upd.push(pendulo(arte, 760, 1020, 300));   // "pendulo": false tira o pêndulo desenhado (ex.: sobre vídeo real)
   }
   if(c.tipo==='busca'){
     const b = add(el('div','busca'), 0.1);

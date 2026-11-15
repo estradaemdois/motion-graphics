@@ -25,7 +25,7 @@ Produz o vídeo de um roteiro **já aprovado**.
 
 | tipo | campos | arte |
 |---|---|---|
-| `gancho` | rotulo, titulo | título grande + traço + pêndulo balançando |
+| `gancho` | rotulo, titulo, pendulo (opcional, `false` tira o pêndulo) | título grande + traço + pêndulo balançando |
 | `busca` | rotulo, consulta, metrica, metricaLegenda, fonte | barra digitando a busca + número grande |
 | `grafico` | rotulo, titulo, texto | gráfico circular que se desenha e gira |
 | `ondas` | rotulo, titulo, texto | ondas que pulsam do centro |
