@@ -30,4 +30,7 @@ html,body{margin:0;background:var(--cor-fundo);overflow:hidden}
 .perfil{font-family:'Sans';font-weight:500;font-size:38px;margin-top:12px;opacity:.88}
 .nota{font-family:'Sans';font-weight:500;font-size:36px;line-height:1.35;margin-top:46px;opacity:.85;max-width:820px}
 svg{display:block;overflow:visible}
+/* com vídeo de fundo: página transparente, gravada em .mov com alfa e juntada pelo compor.py */
+html.alpha,html.alpha body,html.alpha #stage{background:transparent}
+html.alpha #luz{display:none}
 .arte{position:absolute;left:0;top:0;width:1080px;height:1920px;pointer-events:none}

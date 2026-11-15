@@ -42,7 +42,8 @@ def main():
               .replace('__SERIF_I__', b64(AQUI / 'fonts' / reel.get('fonteSerifItalico', 'Newsreader-Italic-Variable.woff2')))
               .replace('__SANS__', b64(AQUI / 'fonts' / reel.get('fonteSans', 'Manrope-Variable.woff2'))))
     vars_ = f':root{{--cor-fundo:{cor["fundo"]};--cor-texto:{cor["texto"]};--cor-destaque:{cor["destaque"]}}}'
-    html = ('<!doctype html><html><head><meta charset="utf-8">'
+    alfa = ' class="alpha"' if any(c.get('fundoVideo') for c in reel['cenas']) else ''
+    html = (f'<!doctype html><html{alfa}><head><meta charset="utf-8">'
             f'<title>{reel.get("titulo", "Reel")}</title><style>{vars_}{css}</style></head><body>'
             '<div id="wrap"><div id="stage"></div></div>'
             f'<script>window.REEL={json.dumps(reel, ensure_ascii=False)};</script>'

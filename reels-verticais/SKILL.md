@@ -48,7 +48,13 @@ ffmpeg -i work/video-mudo.mp4 -f lavfi -i anullsrc=r=48000:cl=stereo -map 0:v -m
 ```
 - A gravação usa 4 subquadros por quadro, então é mais lenta que o tempo real (minutos).
 - O áudio mudo é colocado porque alguns apps recusam vídeo sem faixa de som. A música é escolhida no Instagram.
-- **Vídeo de fundo** (Pexels ou vídeos próprios) é opcional e fica para uma próxima etapa. O caminho é gravar a página com fundo transparente e juntar com o ffmpeg.
+- **Vídeo de fundo** (Pexels ou vídeos próprios): em cada cena, use `fundoVideo` (link ou arquivo), `fundoInicio`, `veu` (0–1) e `creditoFundo`. Com isso a página sai transparente. Grave em `.mov` e junte com o `compor.py`:
+  ```bash
+  node ../motion-broll/engine/render.js work/pagina.html work/animacao.mov 30
+  python3 compor.py --cenas cenas.json --animacao work/animacao.mov --out video.mp4 --cache work/fundos
+  ```
+  O `compor.py` baixa os vídeos com curl (o Pexels recusa outros clientes), recorta para 9:16, aplica o véu na cor da marca, coloca a animação por cima e lista os créditos.
+  Não use imagens que pareçam uma sessão real que não aconteceu.
 - **Sons:** use a habilidade `sound-effects` deste repositório.
 
 Requisitos: Node com Playwright e Chromium, Python 3 e ffmpeg (`../motion-broll/scripts/setup.sh`).
