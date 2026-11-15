@@ -1,0 +1,12 @@
+{
+  "titulo": "Exemplo do modelo",
+  "cor": {"fundo": "#164A4E", "texto": "#FBFAF7", "destaque": "#E2C07E", "luz": "rgba(226,192,126,0.16)"},
+  "cenas": [
+    {"tipo": "gancho", "ini": 0, "fim": 3, "rotulo": "Modelo", "titulo": "Reels *verticais*"},
+    {"tipo": "busca", "ini": 3, "fim": 8, "rotulo": "Cena de busca", "consulta": "texto digitado", "metrica": "+00%", "metricaLegenda": "número só com fonte", "fonte": "fonte: indicar sempre"},
+    {"tipo": "grafico", "ini": 8, "fim": 13, "rotulo": "Cena de gráfico", "titulo": "Um círculo que *se desenha*"},
+    {"tipo": "ondas", "ini": 13, "fim": 18, "rotulo": "Cena de ondas", "titulo": "Ondas que *pulsam*"},
+    {"tipo": "cartoes", "ini": 18, "fim": 23, "rotulo": "Cena de cartões", "itens": [{"ok": true, "texto": "Item *positivo*"}, {"ok": false, "texto": "Item negativo"}]},
+    {"tipo": "final", "ini": 23, "fim": 27, "titulo": "Encerramento com *chamada*", "assinatura": "Assinatura da marca", "perfil": "@perfil", "nota": "Nota curta opcional"}
+  ]
+}
