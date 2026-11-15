@@ -33,4 +33,7 @@ svg{display:block;overflow:visible}
 /* com vídeo de fundo: página transparente, gravada em .mov com alfa e juntada pelo compor.py */
 html.alpha,html.alpha body,html.alpha #stage{background:transparent}
 html.alpha #luz{display:none}
+/* sombra suave atrás do texto quando há vídeo de fundo (legibilidade sem contorno) */
+html.alpha .cena::before{content:'';position:absolute;left:0;right:0;top:0;height:1150px;
+  background:linear-gradient(180deg,rgba(22,74,78,.78) 0%,rgba(22,74,78,.55) 55%,rgba(22,74,78,0) 100%)}
 .arte{position:absolute;left:0;top:0;width:1080px;height:1920px;pointer-events:none}
