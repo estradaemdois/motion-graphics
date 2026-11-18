@@ -78,6 +78,13 @@ const cenas = R.cenas.map((c)=>{
       anim.push([m, 2.0]);
     }
   }
+  if(c.frases){   // frases que se substituem dentro da mesma cena (mesmo vídeo de fundo, sem corte)
+    const n = c.frases.length, passo = (c.fim - c.ini)/n, caixa = el('div','frases'); bloco.appendChild(caixa);
+    c.frases.forEach((f,i)=>{ const e = el('div','titulo frase', md(f)); caixa.appendChild(e);
+      upd.push(t=>{ const p = mola(t, i*passo + 0.1), sai = i<n-1 ? 1 - eo((t - ((i+1)*passo - SAI))/SAI) : 1;
+        e.style.opacity = (cl(p)*cl(sai)).toFixed(4); e.style.transform = `translateY(${((1-p)*36).toFixed(2)}px)`;
+        e.style.filter = p<0.98 ? `blur(${((1-cl(p))*8).toFixed(2)}px)` : 'none'; }); });
+  }
   if(c.texto) add(el('div','texto', md(c.texto)), c.tipo==='busca'?2.4:0.6);
   if(c.tipo==='grafico'){ const f = grafico(arte, 540, 1180, 300); upd.push(t=>f(t-0.3)); }
   if(c.tipo==='ondas'){ const f = ondas(arte, 540, 1180, 330); upd.push(t=>f(t-0.3)); }
