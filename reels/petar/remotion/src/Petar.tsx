@@ -26,7 +26,7 @@ const starts: number[] = [];
 let acc = 0;
 for (const [, d] of CLIPS) { starts.push(acc); acc += Math.round(d * FPS); }
 const VIDEO_END = acc;
-const END_CARD = 90;
+const END_CARD = 105;
 export const TOTAL = VIDEO_END + END_CARD;
 
 // chapters: [label, startClipIdx, endClipIdxExclusive]
@@ -135,25 +135,25 @@ const EndCard: React.FC = () => {
   const {fps} = useVideoConfig();
   const wipe = interpolate(f, [0, 12], [0, 100], {extrapolateRight: 'clamp', easing: Easing.inOut(Easing.cubic)});
   const a = spring({frame: f - 8, fps, config: {damping: 14}});
-  const b = spring({frame: f - 16, fps, config: {damping: 14}});
-  const c = spring({frame: f - 26, fps, config: {damping: 16}});
-  const road = interpolate(f, [14, 44], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp', easing: Easing.out(Easing.cubic)});
+  const logo = spring({frame: f - 12, fps, config: {damping: 11, mass: 0.8}});
+  const c = spring({frame: f - 28, fps, config: {damping: 16}});
+  const spin = interpolate(logo, [0, 1], [-14, 0]);
+  const float = Math.sin((f / fps) * 2.2) * 6;
   return (
     <AbsoluteFill>
       <AbsoluteFill style={{background: C.verde, clipPath: `circle(${wipe * 1.2}% at 50% 50%)`}} />
       <AbsoluteFill style={{alignItems: 'center', justifyContent: 'center'}}>
-        <div style={{opacity: a, transform: `scale(${0.85 + 0.15 * a})`}}>
+        <div style={{opacity: a, transform: `translateY(${(1 - a) * -30}px)`, display: 'flex', alignItems: 'center', gap: 22}}>
           <Pill bg={C.ambar} color={C.verde} size={38}>MELHORES MOMENTOS</Pill>
+          <div style={{fontFamily: TITLE, fontWeight: 800, fontSize: 84, color: C.creme, letterSpacing: -2}}>Petar</div>
         </div>
-        <div style={{fontFamily: TITLE, fontWeight: 800, fontSize: 210, color: C.creme, letterSpacing: -5, lineHeight: 1.05,
-          marginTop: 24, opacity: b, transform: `translateY(${(1 - b) * 50}px)`}}>Petar</div>
-        <svg width="560" height="120" viewBox="0 0 560 120" style={{marginTop: 10}}>
-          <path d="M10 90 C 140 10, 260 120, 380 50 S 540 30, 550 30" fill="none" stroke={C.ambar} strokeWidth="9"
-            strokeLinecap="round" strokeDasharray="700" strokeDashoffset={700 * (1 - road)} />
-          <circle cx="550" cy="30" r={14 * road} fill={C.laranja} />
-        </svg>
-        <div style={{fontFamily: TITLE, fontWeight: 700, fontSize: 64, color: C.ambar, marginTop: 40, opacity: c,
-          transform: `translateY(${(1 - c) * 20}px)`}}>Estrada em Dois</div>
+        <div style={{marginTop: 60, width: 640, height: 640, borderRadius: 999, overflow: 'hidden',
+          transform: `translateY(${float}px) scale(${logo}) rotate(${spin}deg)`,
+          boxShadow: `0 0 0 10px ${C.ambar}, 0 30px 80px rgba(0,0,0,0.45)`}}>
+          <img src={staticFile('logo.png')} style={{width: '100%', height: '100%', display: 'block'}} />
+        </div>
+        <div style={{fontFamily: BODY, fontWeight: 700, fontSize: 46, color: C.ambar, marginTop: 64, opacity: c,
+          letterSpacing: 1, transform: `translateY(${(1 - c) * 20}px)`}}>@estradaemdois.oficial</div>
       </AbsoluteFill>
     </AbsoluteFill>
   );
