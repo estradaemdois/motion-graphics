@@ -19,8 +19,8 @@ const C = {verde: '#17302A', noite: '#0E1F1A', creme: '#F4EBDD', ambar: '#F2B33D
 const FPS = 30;
 // clip, seconds
 const CLIPS: [string, number][] = [
-  ['01', 3.0], ['02', 2.0], ['03', 2.5], ['04', 3.0], ['05', 2.6], ['06', 3.2],
-  ['07', 2.6], ['08', 2.4], ['09', 2.6], ['10', 3.4], ['11', 3.6],
+  ['01', 3.0], ['03', 2.5], ['04', 3.0], ['05', 2.6], ['06', 3.2], ['07', 2.6], ['10', 3.4],
+  ['12', 2.4], ['13', 2.4], ['14', 2.5], ['15', 2.6], ['16', 2.6], ['17', 2.4], ['18', 2.4], ['19', 2.8],
 ];
 const starts: number[] = [];
 let acc = 0;
@@ -31,10 +31,11 @@ export const TOTAL = VIDEO_END + END_CARD;
 
 // chapters: [label, startClipIdx, endClipIdxExclusive]
 const CHAPTERS: [string, number, number][] = [
-  ['Mata Atlântica', 1, 4],
-  ['Rio e ponte pênsil', 4, 6],
-  ['Rumo à caverna', 6, 8],
-  ['Dentro da caverna', 8, 11],
+  ['Mata Atlântica', 1, 3],
+  ['Rio e ponte pênsil', 3, 5],
+  ['Rumo à caverna', 5, 7],
+  ['Dentro da caverna', 7, 11],
+  ['Fendas e escaladas', 11, 15],
 ];
 
 const Clip: React.FC<{src: string; dur: number; idx: number}> = ({src, dur, idx}) => {
