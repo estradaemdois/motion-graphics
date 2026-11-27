@@ -1,6 +1,6 @@
 ---
 name: reels-verticais
-description: Monta e grava Reels verticais 9:16 (1080x1920) de motion graphics a partir de um roteiro APROVADO — gancho com pêndulo, busca com métrica, gráfico circular, ondas, cartões ✓/✗ e encerramento com assinatura — reaproveitando o motor do motion-broll (motion.js e render.js). Use quando pedirem para produzir o vídeo de um roteiro aprovado, como os do agente de conteúdo de radiestesia do @trechoquecura.
+description: Monta e grava Reels verticais 9:16 (1080x1920) de motion graphics a partir de um roteiro APROVADO — gancho com pêndulo, busca com métrica, gráfico circular, ondas, cartões ✓/✗ e encerramento com assinatura — reaproveitando o motor do motion-broll (motion.js e render.js). Use quando pedirem para produzir o vídeo de um roteiro aprovado, como os do agente de conteúdo de radiestesia do @radiestesia_brasil.
 ---
 
 # Reels verticais
